@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+
+    x:Class="PhoneApp9.MainPage"
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+    SupportedOrientations="Landscape" Orientation="Landscape"
+
+    shell:SystemTray.IsVisible="False" mc:Ignorable="d" d:DesignHeight="480" d:DesignWidth="800">
+
+
+    <Grid x:Name="ContentPanel" Background="Transparent">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="80*" />
+
+            <RowDefinition Height="20*" />
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="50*" />
+
+            <ColumnDefinition Width="50*" />
+
+        </Grid.ColumnDefinitions>
+
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="1,1,1,1" 
+                    CornerRadius="8,8,8,8"
+                    Grid.Column="0" Grid.Row="0"
+                    Grid.ColumnSpan="2" 
+                    HorizontalAlignment="Stretch" 
+                    Margin="15">
+
+
+            <Canvas x:Name="canvas1" 
+                    Background="White" 
+                    MouseMove="canvas1_MouseMove" 
+                    Loaded="canvas1_Loaded" 
+                    MouseEnter="canvas1_MouseEnter" MouseLeave="canvas1_MouseLeave" />
+        </Border>
+        <Button 
+                Content="Clear" 
+                Grid.Column="0" Grid.Row="1" 
+                Name="button1" 
+                Click="button1_Click" 
+                Background="White" 
+                BorderBrush="Gray" 
+                Foreground="Black"
+                ></Button>
+        <Button 
+                Content="Submit" 
+                Grid.Column="1" Grid.Row="1" 
+                Name="button2" 
+                Foreground="Black" Background="Green" 
+                BorderBrush="Gray" 
+                Click="button2_Click"></Button>
+    </Grid>
+
+</phone:PhoneApplicationPage>
