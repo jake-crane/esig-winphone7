@@ -66,16 +66,38 @@ namespace PhoneApp9 {
         }
 
         private void canvas1_MouseMove(object sender, MouseEventArgs e) {
+		
+            /*This create an ellipse for oldPoint. 
+            This can not be done in canvas1_mouseEnter because for 
+            some reason button1_Click calls canvas1_MouseEnter.*/
+            Ellipse ellipse1 = new Ellipse() {
+                Stroke = new SolidColorBrush(Colors.Black),
+                Fill = new SolidColorBrush(Colors.Black),
+                Width = 5,
+                Height = 5
+            };
+            Canvas.SetLeft(ellipse1, oldPoint.X - ellipse1.Width / 2);
+            Canvas.SetTop(ellipse1, oldPoint.Y - ellipse1.Height / 2);
+            canvas1.Children.Add(ellipse1);
 
             currentPoint = e.GetPosition(canvas1);
-
             timedPoints.Add(new TimedPoint(currentPoint.X, currentPoint.Y));
 
             Line line = new Line() { X1 = oldPoint.X, Y1 = oldPoint.Y, X2 = currentPoint.X, Y2 = currentPoint.Y };
             line.Stroke = new SolidColorBrush(Colors.Black);
             line.StrokeThickness = 5;
-
             canvas1.Children.Add(line);
+
+            //Create an ellipse for currentPoint
+            Ellipse ellipse2 = new Ellipse() {
+                Stroke = new SolidColorBrush(Colors.Black),
+                Fill = new SolidColorBrush(Colors.Black),
+                Width = 5,
+                Height = 5
+            };
+            Canvas.SetLeft(ellipse2, currentPoint.X - ellipse2.Width / 2);
+            Canvas.SetTop(ellipse2, currentPoint.Y - ellipse2.Height / 2);
+            canvas1.Children.Add(ellipse2);
 
             oldPoint = currentPoint;
 
