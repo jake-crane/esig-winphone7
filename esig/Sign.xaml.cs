@@ -28,7 +28,6 @@ namespace PhoneApp9 {
 
         public MainPage() {
             InitializeComponent();
-            drawBaseline();
         }
 
         private void canvas1_Loaded(object sender, RoutedEventArgs e) {
@@ -47,7 +46,7 @@ namespace PhoneApp9 {
 
         private void canvas1_MouseMove(object sender, MouseEventArgs e) {
 		
-            /*This create an ellipse for oldPoint. 
+            /*This creates an ellipse for oldPoint. 
             This can not be done in canvas1_mouseEnter because for 
             some reason button1_Click calls canvas1_MouseEnter.*/
             Ellipse ellipse1 = new Ellipse() {
@@ -89,11 +88,10 @@ namespace PhoneApp9 {
                 X1 = canvas1.ActualWidth * 0.05,
                 Y1 = canvas1.ActualHeight * 0.75, 
                 X2 = canvas1.ActualWidth * 0.95, 
-                Y2 = canvas1.ActualHeight * 0.75 };
-
-            line.Stroke = new SolidColorBrush(Colors.Gray);
-
-            line.StrokeThickness = 4;
+                Y2 = canvas1.ActualHeight * 0.75,
+                Stroke = new SolidColorBrush(Colors.Gray),
+                StrokeThickness = 4
+            };
 
             canvas1.Children.Add(line);
         }
