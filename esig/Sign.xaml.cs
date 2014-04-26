@@ -104,6 +104,11 @@ namespace PhoneApp9 {
 
         private void button2_Click(object sender, RoutedEventArgs e) {
 
+            if (timedPoints.Count == 0) {
+                MessageBox.Show("Please sign before submitting your signature.");
+                return;
+            }
+
             string stringOutput = "{\"sigId\":\"" + sigId + "\",";
 
             stringOutput += GetJsonPointsString() + ",";
@@ -112,9 +117,13 @@ namespace PhoneApp9 {
             WriteableBitmap wb = new WriteableBitmap(canvas1, null);
             byte[] bytes = ConvertToBytes(wb);
 
-            stringOutput += "\"dataURL\":\"data:image/png;base64," + Convert.ToBase64String(bytes) + "\",";
+            stringOutput += "\"imageData\":\"" + Convert.ToBase64String(bytes) + "\",";
 
-            stringOutput += "\"rotation\":0}";
+            stringOutput += "\"startTime\":" + GetFirstNonNullPoint().Time
+                + ",\"finishTime\":" + GetLastNonNullPoint().Time
+                + ",\"width\":" + canvas1.ActualWidth
+                + ",\"height\":" + canvas1.ActualHeight
+                + ",\"rotation\":0}";
 
             //MessageBox.Show("stringOutput: " + stringOutput);
 
@@ -122,6 +131,24 @@ namespace PhoneApp9 {
 
             post();
 
+        }
+
+        private TimedPoint GetFirstNonNullPoint() {
+            for(int i = 0; i < timedPoints.Count; i++) {
+                if (timedPoints[i] != null) {
+                    return timedPoints[i];
+                }
+            }
+            return null;
+        }
+
+        private TimedPoint GetLastNonNullPoint() {
+            for (int i = timedPoints.Count - 1; i > -1; i--) {
+                if (timedPoints[i] != null) {
+                    return timedPoints[i];
+                }
+            }
+            return null;
         }
 
         public string GetJsonPointsString() {
@@ -155,7 +182,7 @@ namespace PhoneApp9 {
             //MessageBox.Show("posting to: " + uri.ToString());
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "POST";
-            request.ContentType = "text/plain; charset=UTF-8";
+            request.ContentType = "application/json; charset=UTF-8";
             request.BeginGetRequestStream(new AsyncCallback(RequestReady), request);
         }
 
