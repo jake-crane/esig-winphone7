@@ -183,6 +183,7 @@ namespace PhoneApp9 {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "POST";
             request.ContentType = "application/json; charset=UTF-8";
+            request.UserAgent = "windowsphone7 v0.0.1";
             request.BeginGetRequestStream(new AsyncCallback(RequestReady), request);
         }
 
@@ -221,7 +222,7 @@ namespace PhoneApp9 {
             // I think this is a bug 
             this.Dispatcher.BeginInvoke(delegate() {
                 //MessageBox.Show("Status Code:\n" + response.StatusCode.ToString());
-                if (response.StatusCode.Equals(HttpStatusCode.OK)) {
+                if (response.StatusCode.Equals(HttpStatusCode.OK) || response.StatusCode.Equals(HttpStatusCode.NoContent)) {
                     MessageBox.Show("Your signature has been received.");
                 } else {
                     MessageBox.Show("Error: " + response.StatusCode);
