@@ -164,6 +164,9 @@ namespace esig {
                 return;
             }
 
+            button2.Content = "Submitting...";
+            button2.IsEnabled = false;
+
             string stringOutput = "{\"sigId\":\"" + sigId + "\",";
 
             stringOutput += GetJsonPointsString(timedPoints) + ",";
@@ -303,6 +306,8 @@ namespace esig {
             } catch (Exception w) {
                 this.Dispatcher.BeginInvoke(delegate() {
                     MessageBox.Show("Exception Message:\n" + w.Message);
+                    button2.Content = "Submit";
+                    button2.IsEnabled = true;
                 });
                 return;
             }
@@ -318,6 +323,8 @@ namespace esig {
                     MessageBox.Show("Error: " + response.StatusCode);
                 }
                 response.Close();
+                button2.Content = "Submit";
+                button2.IsEnabled = true;
                 /*using (Stream responseStream = response.GetResponseStream()) {
                     using (StreamReader reader = new StreamReader(responseStream)) {
                         string result = reader.ReadToEnd();
