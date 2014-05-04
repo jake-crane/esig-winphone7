@@ -21,6 +21,8 @@ namespace esig {
         /// <summary>
         /// This method is called when the user presses the Start Scan button.
         /// It asynchronously starts scanning for a QR code.
+        /// If a QR code is identified, the user will be directed to the Sign page.
+        /// The Sign page will be sent the decoded string from the QR code.
         /// </summary>
         private void button1_Click(object sender, RoutedEventArgs e) {
             WP7.ScanBarCode.BarCodeManager.StartScan(
