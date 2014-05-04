@@ -17,10 +17,10 @@ namespace esig {
     public partial class Sign : PhoneApplicationPage {
 
         // the signature Id from the QR code
-        string sigId;
+        private string sigId;
 
         //The server address from the QR code
-        string site;
+        private string site;
 
         //stores the user's current point on the canvas
         private Point currentPoint;
