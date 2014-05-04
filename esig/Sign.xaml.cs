@@ -117,7 +117,7 @@ namespace esig {
         ///  The line will be drawn 75% of the way down the canvas.
         ///  The line will be drawn 5% from the left of the canvas to 95% from the left of the canvas.
         /// </summary>
-        void drawBaseline() {
+        void DrawBaseline() {
 
             Line line = new Line() {
                 X1 = canvas1.ActualWidth * 0.05,
