@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Phone.Controls;
 using com.google.zxing;
+using System.Windows.Navigation;
 
 namespace esig {
 
@@ -250,7 +251,7 @@ namespace esig {
         /// <returns>
         /// Returns a byte array representation of the passed WritableBitmap.
         /// </returns>
-        public static byte[] ConvertToBytes(WriteableBitmap wBitmap) {
+        public byte[] ConvertToBytes(WriteableBitmap wBitmap) {
             byte[] data = null;
             using (MemoryStream stream = new MemoryStream()) {
                 wBitmap.SaveJpeg(stream, wBitmap.PixelWidth, wBitmap.PixelHeight, 0, 100);
@@ -338,7 +339,7 @@ namespace esig {
         /// The method is called when the user is navigated to the sign page.
         /// It removes back entries and process the QR code string.
         /// </summary>
-        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e) {
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
             base.OnNavigatedTo(e);
 
             //Remove back entries so when the user presses back the app will close.
