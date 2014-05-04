@@ -35,7 +35,7 @@ namespace PhoneApp9 {
         It will contain the sigid, imagedata, signature start time,
         signature finish time, canvas width, canvas height and canvas rotation
         */
-        byte[] outputBytes;
+        private byte[] outputBytes;
 
         public MainPage() {
             InitializeComponent();
