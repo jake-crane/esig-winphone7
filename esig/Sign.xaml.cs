@@ -116,7 +116,8 @@ namespace esig {
         /// <summary>
         ///  This method draws a baseline on the canvas.
         ///  The line will be drawn 75% of the way down the canvas.
-        ///  The line will be drawn 5% from the left of the canvas to 95% from the left of the canvas.
+        ///  The line will be drawn from 5% of the width of the canvas from the left of the canvas
+        ///   to 95% of the width of the canvas from the left of the canvas.
         /// </summary>
         void DrawBaseline() {
 
