@@ -12,9 +12,9 @@ using System.IO;
 using Microsoft.Phone.Controls;
 using com.google.zxing;
 
-namespace PhoneApp9 {
+namespace esig {
 
-    public partial class MainPage : PhoneApplicationPage {
+    public partial class Sign : PhoneApplicationPage {
 
         // the signature Id from the QR code
         string sigId;
@@ -37,7 +37,7 @@ namespace PhoneApp9 {
         */
         private byte[] outputBytes;
 
-        public MainPage() {
+        public Sign() {
             InitializeComponent();
         }
 
