@@ -38,7 +38,7 @@
                    Grid.Column="0" Grid.Row="0" 
                    Text="Press the button below to start scanning." 
                    FontSize="35" Margin="10" 
-                   TextWrapping="Wrap" />
+                   TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 
 </phone:PhoneApplicationPage>
