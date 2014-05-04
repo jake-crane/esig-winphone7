@@ -18,6 +18,10 @@ namespace esig {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// This method is called when the user presses the Start Scan button.
+        /// It asynchronously starts scanning for a QR code.
+        /// </summary>
         private void button1_Click(object sender, RoutedEventArgs e) {
             WP7.ScanBarCode.BarCodeManager.StartScan(
                 // on success
