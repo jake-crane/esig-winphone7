@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{9aa087f6-04aa-4a6d-bb93-f30575ab9dd3}" Title="esig" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="esig author" Description="Sample description" Publisher="esig">
+  <App xmlns="" ProductID="{9aa087f6-04aa-4a6d-bb93-f30575ab9dd3}" Title="Esig" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="Jake Crane" Description="Sample description" Publisher="">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES"/>
