@@ -46,7 +46,7 @@ namespace esig {
         /// It simply calls the dradrawBaseline method.
         /// </summary>
         private void canvas1_Loaded(object sender, RoutedEventArgs e) {
-            drawBaseline();
+            DrawBaseline();
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace esig {
         private void button1_Click(object sender, RoutedEventArgs e) {
             canvas1.Children.Clear();
             timedPoints.Clear();
-            drawBaseline();
+            DrawBaseline();
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace esig {
 
             outputBytes = System.Text.Encoding.UTF8.GetBytes(stringOutput);
 
-            post();
+            Post();
 
         }
 
@@ -261,7 +261,7 @@ namespace esig {
         /// <summary>
         /// Sends a post request to the sigstore servlet and sets RequestReady at a callback method.
         /// </summary>
-        void post() {
+        void Post() {
             Uri uri = new Uri(site + "sigstore", UriKind.Absolute);
             //MessageBox.Show("posting to: " + uri.ToString());
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
