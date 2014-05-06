@@ -57,7 +57,7 @@ namespace esig {
         private void canvas1_MouseEnter(object sender, MouseEventArgs e) {
             currentPoint = e.GetPosition(canvas1);
             previousPoint = currentPoint;
-            timedPoints.Add(new TimedPoint(currentPoint.X, currentPoint.Y));
+            timedPoints.Add(new TimedPoint(currentPoint));
         }
 
         /// <summary>
@@ -91,11 +91,16 @@ namespace esig {
             canvas1.Children.Add(ellipse1);
 
             currentPoint = e.GetPosition(canvas1);
-            timedPoints.Add(new TimedPoint(currentPoint.X, currentPoint.Y));
+            timedPoints.Add(new TimedPoint(currentPoint));
 
-            Line line = new Line() { X1 = previousPoint.X, Y1 = previousPoint.Y, X2 = currentPoint.X, Y2 = currentPoint.Y };
-            line.Stroke = new SolidColorBrush(Colors.Black);
-            line.StrokeThickness = 5;
+            Line line = new Line() {
+                X1 = previousPoint.X,
+                Y1 = previousPoint.Y,
+                X2 = currentPoint.X,
+                Y2 = currentPoint.Y,
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 5
+            };
             canvas1.Children.Add(line);
 
             //Create an ellipse for currentPoint
