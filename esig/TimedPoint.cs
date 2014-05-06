@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Windows;
 
+/// <summary>
+/// A TimedPoint class that is used to represent a location in coordinate space and it's time of creation.
+/// The coordinates are stored using two double type variables.
+/// The time is stored using a long variable.
+/// </summary>
 public class TimedPoint {
 
     public double X { get; set; }
